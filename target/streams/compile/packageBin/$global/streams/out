@@ -1,0 +1,21 @@
+[0m[[0minfo[0m] [0mPackaging /Users/suman.das/Public/workspace/redis/target/scala-2.11/spark-redis_2.11-1.0.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	spark/redis/test[0m
+[0m[[0mdebug[0m] [0m	  /Users/suman.das/Public/workspace/redis/target/scala-2.11/classes/spark/redis/test[0m
+[0m[[0mdebug[0m] [0m	spark/redis/test/RedisRead.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/suman.das/Public/workspace/redis/target/scala-2.11/classes/spark/redis/test/RedisRead.class[0m
+[0m[[0mdebug[0m] [0m	spark/redis/test/RedisWrite$.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/suman.das/Public/workspace/redis/target/scala-2.11/classes/spark/redis/test/RedisWrite$.class[0m
+[0m[[0mdebug[0m] [0m	spark/redis/test/RedisRead$.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/suman.das/Public/workspace/redis/target/scala-2.11/classes/spark/redis/test/RedisRead$.class[0m
+[0m[[0mdebug[0m] [0m	spark/redis/test/RedisWrite.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/suman.das/Public/workspace/redis/target/scala-2.11/classes/spark/redis/test/RedisWrite.class[0m
+[0m[[0mdebug[0m] [0m	spark/redis/test/RedisWrite$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/suman.das/Public/workspace/redis/target/scala-2.11/classes/spark/redis/test/RedisWrite$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	spark/redis[0m
+[0m[[0mdebug[0m] [0m	  /Users/suman.das/Public/workspace/redis/target/scala-2.11/classes/spark/redis[0m
+[0m[[0mdebug[0m] [0m	spark/redis/test/RedisRead$$anonfun$main$1.class[0m
+[0m[[0mdebug[0m] [0m	  /Users/suman.das/Public/workspace/redis/target/scala-2.11/classes/spark/redis/test/RedisRead$$anonfun$main$1.class[0m
+[0m[[0mdebug[0m] [0m	spark[0m
+[0m[[0mdebug[0m] [0m	  /Users/suman.das/Public/workspace/redis/target/scala-2.11/classes/spark[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
