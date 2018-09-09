@@ -13,3 +13,5 @@ libraryDependencies ++=Seq(
   "com.redislabs" %% "spark-redis" % "2.3.0" from "https://oss.sonatype.org/content/groups/staging/com/redislabs/spark-redis/2.3.0/spark-redis-2.3.0.jar"
 
 )
+
+libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "1.8.0"

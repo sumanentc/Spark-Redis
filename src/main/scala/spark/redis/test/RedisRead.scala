@@ -2,7 +2,9 @@ package spark.redis.test
 
 import org.apache.spark.SparkConf
 import com.redislabs.provider.redis._
+import org.apache.spark.sql.Row
 import org.apache.spark.sql.types._
+import com.github.nscala_time.time.Imports._
 
 
 /**
@@ -28,27 +30,38 @@ object RedisRead {
       List(
         StructField("glidepathActualsales", DoubleType, true,Metadata.empty),
         StructField("glidepathTargetsales", DoubleType, true,Metadata.empty),
-        StructField("the_date", DateType, true,Metadata.empty),
+        StructField("the_date", org.apache.spark.sql.types.StringType, true,Metadata.empty),
         StructField("Pipstatus",org.apache.spark.sql.types.StringType, true,Metadata.empty),
         StructField("store", org.apache.spark.sql.types.StringType, true,Metadata.empty),
         StructField("region", org.apache.spark.sql.types.StringType, true,Metadata.empty),
         StructField("division", org.apache.spark.sql.types.StringType, true,Metadata.empty),
         StructField("national", org.apache.spark.sql.types.StringType, true,Metadata.empty),
         StructField("storeClassification", org.apache.spark.sql.types.StringType, true,Metadata.empty),
-        StructField("storeOpeningdate", DateType, true,Metadata.empty),
+        StructField("storeOpeningdate", org.apache.spark.sql.types.StringType, true,Metadata.empty),
         StructField("storetimezone", org.apache.spark.sql.types.StringType, true,Metadata.empty),
         StructField("storetype", org.apache.spark.sql.types.StringType, true,Metadata.empty)
 
       )
     )
-    import sparkSession.sqlContext.implicits._
-    val listRDD = sparkSession.sparkContext.fromRedisSet("temp1")
 
-    val listDS = sparkSession.createDataset(listRDD)
-    listDS.createOrReplaceTempView("newstoreglidepath_parque")
+    def row(line: List[String]): Row = Row(line(0).toDouble, line(1).toDouble,line(2),line(3),line(4),line(5),line(6),line(7),line(8),line(9),line(10),line(11))
 
-    val dataset = sparkSession.sql("select * from newstoreglidepath_parque");
-    dataset.collect().foreach(println);
+    //import sparkSession.sqlContext.implicits._
+    val listRDD = sparkSession.sparkContext.fromRedisSet("temp1").map(_.split(",").to[List]).map(row)
+
+    //val listDS = sparkSession.createDataset(listRDD)
+    val listDataFrame = sparkSession.createDataFrame(listRDD,schema);
+    listDataFrame.createOrReplaceTempView("newstoreglidepath_parque")
+
+    val dataRDD = sparkSession.sql("select * from newstoreglidepath_parque")
+    dataRDD.printSchema();
+    dataRDD.collect().foreach(println);
+
+    val grpDataSet = sparkSession.sql("SELECT sum(glidepathActualsales) as glidepathActualsales ,region FROM newstoreglidepath_parque group by region")
+
+    grpDataSet.printSchema();
+
+    grpDataSet.collect().foreach(println);
 
   }
 

@@ -4,7 +4,7 @@
 		module="spark-redis_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20180909205321"
+		publication="20180909215459"
 	>
 		<description>
 		spark-redis
@@ -40,5 +40,6 @@
 		<dependency org="com.redislabs" name="spark-redis_2.11" rev="2.3.0" conf="compile->default(compile)">
 			<artifact name="spark-redis_2.11" type="jar" ext="jar" conf="*"/>
 		</dependency>
+		<dependency org="com.github.nscala-time" name="nscala-time_2.11" rev="1.8.0" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
