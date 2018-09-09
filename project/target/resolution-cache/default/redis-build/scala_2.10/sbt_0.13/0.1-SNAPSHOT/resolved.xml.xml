@@ -4,7 +4,7 @@
 		module="redis-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20180906101053"
+		publication="20180906110846"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

@@ -24,7 +24,11 @@ object RedisWrite {
     val path = "/Users/suman.das/Downloads/newstoreglidepath.csv"
     val base_df = sparkSession.read.option("header","true").csv(path)
 
-    sparkSession.sparkContext.toRedisSET(base_df.rdd.map(_.mkString(",")),"temp");
+    base_df.createOrReplaceTempView("temp_table");
+
+    val sql_df = sparkSession.sql("select * from temp_table")
+
+    sparkSession.sparkContext.toRedisSET(sql_df.rdd.map(_.mkString(",")),"temp1");
 
 
   }
