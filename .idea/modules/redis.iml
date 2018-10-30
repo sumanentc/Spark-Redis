@@ -24,9 +24,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="SBT: aopalliance:aopalliance:1.0:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.joda:joda-convert:1.2:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.github.nscala-time:nscala-time_2.11:1.8.0:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.redislabs:spark-redis_2.11:2.3.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: redis.clients:jedis:2.9.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.commons:commons-pool2:2.5.0:jar" level="project" />
     <orderEntry type="library" name="SBT: com.carrotsearch:hppc:0.7.2:jar" level="project" />
     <orderEntry type="library" name="SBT: com.clearspring.analytics:stream:2.7.0:jar" level="project" />
     <orderEntry type="library" name="SBT: com.esotericsoftware:kryo-shaded:3.0.3:jar" level="project" />
@@ -198,5 +197,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="SBT: org.apache.spark:spark-streaming_2.11:2.3.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.redislabs:spark-redis_2.11:2.3.1-M1:jar" level="project" />
   </component>
 </module>

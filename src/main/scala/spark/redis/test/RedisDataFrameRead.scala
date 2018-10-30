@@ -1,15 +1,12 @@
 package spark.redis.test
 
 import org.apache.spark.SparkConf
-import com.redislabs.provider.redis._
 
 /**
-  * Created by suman.das on 9/5/18.
+  * Created by suman.das on 10/30/18.
   */
-object RedisWrite {
+object RedisDataFrameRead {
   def main(args: Array[String]): Unit = {
-
-
     val sparkSession = org.apache.spark.sql.SparkSession.builder
       .config(new SparkConf()
         .setMaster("local")
@@ -22,17 +19,20 @@ object RedisWrite {
         //.set("redis.auth", "")
       ).getOrCreate;
 
-    val path = "/Users/suman.das/Downloads/newstoreglidepath.csv"
-    val base_df = sparkSession.read.option("header","true").csv(path)
+    val loadedDf = sparkSession.read
+      .format("org.apache.spark.sql.redis")
+      .option("table", "temp")
+      .load()
+    loadedDf.printSchema()
+    loadedDf.show()
 
-    base_df.createOrReplaceTempView("temp_table");
+    loadedDf.createOrReplaceTempView("newstoreglidepath_parque");
 
-    val sql_df = sparkSession.sql("select * from temp_table")
+    val grpDataSet = sparkSession.sql("SELECT sum(glidepathActualsales) as glidepathActualsales ,region FROM newstoreglidepath_parque group by region")
 
-    sparkSession.sparkContext.toRedisSET(sql_df.rdd.map(_.mkString(",")),"temp1");
+    grpDataSet.printSchema();
 
-
-
+    grpDataSet.collect().foreach(println);
   }
 
 }

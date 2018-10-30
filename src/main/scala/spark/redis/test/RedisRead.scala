@@ -4,7 +4,7 @@ import org.apache.spark.SparkConf
 import com.redislabs.provider.redis._
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.types._
-import com.github.nscala_time.time.Imports._
+
 
 
 /**
@@ -12,6 +12,7 @@ import com.github.nscala_time.time.Imports._
   */
 object RedisRead {
   def main(args: Array[String]): Unit = {
+
 
     val sparkSession = org.apache.spark.sql.SparkSession.builder
       .config(new SparkConf()
@@ -62,6 +63,7 @@ object RedisRead {
     grpDataSet.printSchema();
 
     grpDataSet.collect().foreach(println);
+
 
   }
 

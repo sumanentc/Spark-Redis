@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="SBT: com.redislabs:spark-redis_2.11:2.3.0:jar">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../spark/spark-redis/target/spark-redis-2.3.0-SNAPSHOT-jar-with-dependencies.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
